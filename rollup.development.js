@@ -1,5 +1,6 @@
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
+import commonjs from '@rollup/plugin-commonjs';
 
 module.exports = {
     input: "./src/index.ts",
@@ -8,7 +9,8 @@ module.exports = {
         format: "esm"
     },
     plugins: [
-        resolve({ dedupe: ["lit-element", "lit-html"] }),
-        typescript(),
+        resolve(),
+        typescript({ module: 'CommonJS' }),
+        commonjs({ extensions: ['.js', '.ts'] }) // the ".ts" extension is required
     ]
 };
