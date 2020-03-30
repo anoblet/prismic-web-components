@@ -1,25 +1,29 @@
-// var Prismic = require('prismic-javascript');
-// import * as Prismic from "prismic-javascript"
-import Prismic from "prismic-javascript"
-console.log(Prismic);
-var apiEndpoint = "https://anoblet.prismic.io/api/v2";
+import { css, customElement, html, LitElement } from "lit-element";
+import "./prismic-document";
 
-Prismic.getApi(apiEndpoint).then(function(api) {
-  return api.query("", { pageSize : 100 }); // An empty query will return all the documents
-}).then(function(response) {
-  console.log("Documents: ", response.results);
-}, function(err) {
-  console.log("Something went wrong: ", err);
-});
+@customElement("shell-component")
+export class ShellComponent extends LitElement {
+    public static get styles() {
+        return css``;
+    }
 
-// (async () => {
-//     const response = await fetch(
-//         "https://anoblet.prismic.io/api/v2"
-//     ).then(response => response.json());
-//     const ref = response.refs[0].ref;
-//     console.log(ref);
-//     const response2 = await fetch(
-//         `https://anoblet.prismic.io/api/v2/documents/search?ref=${ref}`
-//     ).then(response => response.json());
-//     console.log(response2);
-// })();
+    public render() {
+        return html`
+            <prismic-document
+                repository="anoblet"
+                type="home"
+                .template=${function() {
+                    return this.data
+                        ? html`
+                              ${this.toText(this.data.title)}
+                              ${this.toHtml(this.data.rich_text)}
+                          `
+                        : "";
+                }}
+            ></prismic-document>
+        `;
+    }
+}
+
+const el: any = document.createElement("shell-component");
+document.body.appendChild(el);

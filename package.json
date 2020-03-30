@@ -1,5 +1,5 @@
 {
-    "name": "web-starter-kit",
+    "name": "prismic-web-components",
     "version": "0.2.0",
     "description": "",
     "main": "index.js",
@@ -14,14 +14,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/anoblet/web-starter-kit.git"
+        "url": "git+https://github.com/anoblet/prismic-web-components.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/anoblet/web-starter-kit/issues"
+        "url": "https://github.com/anoblet/prismic-web-components/issues"
     },
-    "homepage": "https://github.com/anoblet/web-starter-kit#readme",
+    "homepage": "https://github.com/anoblet/prismic-web-components#readme",
     "devDependencies": {
         "@rollup/plugin-commonjs": "^11.0.2",
         "@rollup/plugin-node-resolve": "^7.1.1",
@@ -36,6 +36,7 @@
         "rimraf": "^3.0.2",
         "rollup": "^1.31.1",
         "rollup-plugin-minify-html-literals": "^1.2.3",
+        "rollup-plugin-node-builtins": "^2.1.2",
         "rollup-plugin-node-globals": "^1.4.0",
         "rollup-plugin-size": "^0.2.2",
         "rollup-plugin-terser": "^5.2.0",
@@ -48,7 +49,7 @@
     },
     "dependencies": {
         "prismic-dom": "^2.1.0",
-        "prismic-javascript": "^2.1.5",
+        "prismic-javascript": "git+https://github.com/prismicio/prismic-javascript.git#nsivertsen",
         "workbox-window": "^5.0.0"
     }
 }
